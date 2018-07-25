@@ -1,0 +1,168 @@
+@import "mq";
+
+.interactive-wrapper {
+
+	background-color: white;
+
+	.column_wrapper {
+		width: 100%;
+		box-sizing: border-box;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		box-sizing: border-box;
+	}
+
+	table {
+		width: 100%;
+		line-height: 14px;
+	}
+
+	td {
+
+		@include mq($until: mobile) {
+			line-height: 18px;
+		}
+
+		@include mq($from: mobile, $until: mobileLandscape) {
+			line-height: 18px;
+		}
+
+		@include mq($from: mobileLandscape) {
+			line-height: 22px;
+		}
+
+	}
+
+	.table-results {
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	}
+
+	th.table-results {
+		color: #a9a9aa;
+		font-weight: 200;
+	}
+
+	td.table-results {
+		color: #6b6b6b;
+		font-weight: 300;
+	}
+
+	td.table-results span {
+		color: white;
+		font-weight: 800;
+		background-color: #B3B3B4;
+	}
+
+	td.table-results span.labor {
+		background-color: #b51800;
+	}
+
+	td.table-results span.liberaldemocrats {
+		background-color: #005689;
+	}
+
+	td.table-results span.liberalnational {
+		background-color: #075e91;
+	}
+
+	td.table-results span.liberal {
+		background-color: #005689;
+	}
+
+	td.table-results span.onenation {
+		background-color: #6e191d;
+	}
+
+	td.table-results span.centrealliance {
+		background-color: #e6711b;
+	}
+
+	td.table-results span.thegreens {
+		background-color: #298422;
+	}
+
+	td.table-results span:empty {
+		background-color: white
+	}
+
+
+	#electorate_container p {
+		max-width: 100%;
+	}
+
+	.electoral_candidate_table {
+		margin-top: 20px;
+	}
+
+	.electoral_candidate_table table {
+		width: 100%;
+	}
+
+
+	@include mq($until: mobileLandscape) {
+
+		th.table-results {
+			font-size: 10px;
+		}
+
+		td.table-results {
+			font-size: 10px;
+		}
+
+		td.table-results span {
+			padding: 2px;
+		}
+
+	}
+
+	@include mq($from: mobileLandscape, $until: desktop) {
+
+		th.table-results {
+			font-size: 12px;
+		}
+
+		td.table-results {
+			font-size: 12px;
+		}
+
+		td.table-results span {
+			padding: 2px;
+		}
+
+	}
+
+	@include mq($from: desktop) {
+		
+		th.table-results {
+			font-size: 14px;
+		}
+
+		td.table-results {
+			font-size: 20px;
+		}
+
+		td.table-results span {
+			padding: 5px;
+		}
+
+	}
+
+	tr td:nth-child(2), tr th:nth-child(2) {
+	   text-align: center;
+	}
+
+	tr td:nth-child(3), tr th:nth-child(3) {
+	   text-align: center;
+	}
+
+	tr td:nth-child(4), tr th:nth-child(4) {
+	   text-align: center;
+	}
+
+	tr td:nth-child(5), tr th:nth-child(5) {
+	   text-align: center;
+	}
+
+}
