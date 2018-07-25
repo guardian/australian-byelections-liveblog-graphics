@@ -111,6 +111,11 @@ export class election {
 
 		var self = this
 
+		// Live https://interactive.guim.co.uk/docsdata/1wZXnPwxMfwjNvIYTm2PLbKWooyLLJifHImD71P8KsM8.json
+
+		// Test https://interactive.guim.co.uk/docsdata/1E-EnAF3_GxErRCW1aiyaubKU7LClcUih5q93dSg2NMA.json
+		
+
 		xr.get('https://interactive.guim.co.uk/docsdata/1wZXnPwxMfwjNvIYTm2PLbKWooyLLJifHImD71P8KsM8.json').then((resp) => {
 
            	if (resp.status === 200) {
@@ -118,12 +123,35 @@ export class election {
            		self.results = resp.data.sheets.national
 
            		var byelection = new Seatstack("#byelection", self.results, "Byelection_outcome", "Unknown")
+
+           		self.updatePredictions()
            		
            	}
 
 		});
 
 	}
+
+	updatePredictions() {
+
+		var self = this
+
+		self.data.forEach( (value, index) => {
+
+			var target = self.results.find( (item) => {
+
+		    	return item.Electorate === value.electorate
+
+			});
+
+			value.prediction = target.Byelection_outcome
+
+		});
+
+		self.renderTable()
+
+	}
+
 
     getLatestFeed(eid, timestamp) {
 
@@ -204,7 +232,18 @@ export class election {
 				polity: self.data,
 				shortify: function(party) {
 					return party.replace(/[ .,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()
+				},
+				partify: function(party) {
+					return (party === 'ALP' || party === 'Labor') ? 'Labor' :
+					(party === 'Unknown') ? 'Unknown' :
+					(party === 'XEN' || party === 'NXT' || party === 'CA' || party === 'Centre Alliance') ? 'Centre Alliance' :
+					(party === 'LIB') ? 'Liberal' :
+					(party === 'PHON' || party === 'ONP') ? 'One Nation' :
+					(party === 'GRN' || party === 'The Greens') ? 'The Greens' : 
+					(party === 'LNP' || party === 'Liberal National') ? 'Liberal National' : 
+					(party === 'LDP' || party === 'Liberal Democrats') ? 'Liberal Democrats' : 'Independent'
 				}
+
 			}
 		});
 	}
