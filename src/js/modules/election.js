@@ -116,7 +116,7 @@ export class election {
 		// Test https://interactive.guim.co.uk/docsdata/1E-EnAF3_GxErRCW1aiyaubKU7LClcUih5q93dSg2NMA.json
 		
 
-		xr.get('https://interactive.guim.co.uk/docsdata/1wZXnPwxMfwjNvIYTm2PLbKWooyLLJifHImD71P8KsM8.json?t=' + new Date().getTime()).then((resp) => {
+		xr.get('https://interactive.guim.co.uk/docsdata/1E-EnAF3_GxErRCW1aiyaubKU7LClcUih5q93dSg2NMA.json?t=' + new Date().getTime()).then((resp) => {
 
            	if (resp.status === 200) {
 
@@ -148,7 +148,7 @@ export class election {
 
 		});
 
-		self.renderTable()
+		self.renderRactiveTable.set('polity', self.data)
 
 	}
 
@@ -201,7 +201,7 @@ export class election {
 
 		});
 
-		this.renderTable()
+		self.renderRactiveTable.set('polity', self.data)
 
 		this.updated()
 
@@ -225,7 +225,7 @@ export class election {
 
 		var self = this
 
-		var ractive = new Ractive({
+		this.renderRactiveTable = new Ractive({
 			target: "#election_results_table",
 			template: table_template,
 			data: { 
