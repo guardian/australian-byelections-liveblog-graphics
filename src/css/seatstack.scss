@@ -195,14 +195,13 @@ $arrowColorOverrides: (
         li {
             float: none;
             height: 50%;
-            margin-bottom: 20px;
             -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
             clear: both;
         }
 
         li:nth-child(2){
-            font-size: 18px;
+            font-size: 12px;
         }
 
         li:first-child{
@@ -450,6 +449,7 @@ $seatstack-list-lineheight: 24px;
             span {
                 bottom: 100%;
                 position: absolute;
+                overflow: visible;
             }
             &[data-partyname='alp'] {
                 float: left;

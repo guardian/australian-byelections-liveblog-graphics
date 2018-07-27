@@ -116,7 +116,7 @@ export class election {
 		// Test https://interactive.guim.co.uk/docsdata/1E-EnAF3_GxErRCW1aiyaubKU7LClcUih5q93dSg2NMA.json
 		
 
-		xr.get('https://interactive.guim.co.uk/docsdata/1E-EnAF3_GxErRCW1aiyaubKU7LClcUih5q93dSg2NMA.json?t=' + new Date().getTime()).then((resp) => {
+		xr.get('https://interactive.guim.co.uk/docsdata/1wZXnPwxMfwjNvIYTm2PLbKWooyLLJifHImD71P8KsM8.json?t=' + new Date().getTime()).then((resp) => {
 
            	if (resp.status === 200) {
 
