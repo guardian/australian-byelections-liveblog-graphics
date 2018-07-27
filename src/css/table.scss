@@ -148,6 +148,11 @@
 
 	}
 
+	tr td:nth-child(1), tr th:nth-child(1) {
+	   text-align: left;
+	}
+
+
 	tr td:nth-child(2), tr th:nth-child(2) {
 	   text-align: center;
 	}

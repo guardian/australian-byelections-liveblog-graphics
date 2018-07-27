@@ -148,7 +148,7 @@ export class election {
 
 		});
 
-		self.renderTable()
+		self.renderRactiveTable.set('polity', self.data)
 
 	}
 
@@ -201,7 +201,7 @@ export class election {
 
 		});
 
-		this.renderTable()
+		self.renderRactiveTable.set('polity', self.data)
 
 		this.updated()
 
@@ -225,7 +225,7 @@ export class election {
 
 		var self = this
 
-		var ractive = new Ractive({
+		this.renderRactiveTable = new Ractive({
 			target: "#election_results_table",
 			template: table_template,
 			data: { 
